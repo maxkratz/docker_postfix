@@ -7,10 +7,18 @@ Prebuild images can be found at this [Dockerhub repository](https://hub.docker.c
 
 
 ## Quickstart
-After installing [Docker](https://docs.docker.com/get-docker/), just run the following command to start your Postfix instance:
+After installing [Docker](https://docs.docker.com/get-docker/), just run the following steps:
+
+* Copy `docker-compose.yml.example` to `docker-compose.yml`.
+* Create your config files: `./config/main.cf`, `./config/relay_recipients`, `./config/dh_2048.pem`, `./config/mailname`, and `$ touch ./data/postfix.log`
+    * You can use the provided example files to get started.
+* Update the file `docker-compose.yml` and set your values.
+* Run the following command to start your Postfix instance:
 ```
 $ docker-compose up -d
 ```
+
+The compose file also starts a container for publishing metrics using [this Docker image](https://github.com/maxkratz/postfix_exporter).
 
 
 ## Dockerfile

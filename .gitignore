@@ -1,0 +1,5 @@
+docker-compose.yml
+./config/mailname
+./config/main.cf
+./config/relay_recipients
+./config/dh_2048.pem

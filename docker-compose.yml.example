@@ -1,0 +1,36 @@
+version: "2.3"
+services:
+
+  postfix:
+    image: maxkratz/postfix:latest
+    volumes:
+      # Main configuration file
+      - ./config/main.cf:/etc/postfix/main.cf:ro
+      # Relay recipient list
+      - ./config/relay_recipients:/etc/postfix/relay_recipients:ro
+      # DH parameters
+      - ./config/dh_2048.pem:/etc/postfix/dh_2048.pem:ro
+      # Mailname, e.g., mx2.example.com
+      - ./config/mailname:/etc/mailname:ro
+      # Log file for persistent logs
+      - ./data/postfix.log:/var/log/postfix.log
+      # Certificate(s) for TLS/SSL
+      - /<your-certificate-path>:/certs:ro
+      # Shared spool volume
+      - spool:/var/spool/postfix
+    network_mode: host
+    restart: unless-stopped
+
+  postfix-exporter:
+    image: maxkratz/postfix_exporter:latest
+    # Mount spool and logfiles as read only to container
+    volumes:
+      - spool:/var/spool/postfix:ro
+      - ./data/postfix.log:/var/log/mail.log:ro
+    # Map ports to host 
+    ports:
+      - 9154:9154
+    restart: unless-stopped
+
+volumes:
+  spool:
