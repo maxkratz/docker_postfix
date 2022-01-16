@@ -82,3 +82,17 @@ steps:
       - *setup
       - docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t $REPO:latest --push .
     <<: *ismain
+
+#
+# Dind service for building Docker images.
+#
+services:
+  - name: docker
+    image: docker:dind
+    privileged: true
+    <<: *dockervolume
+
+# The temporary volume for the dockersocket.
+volumes:
+  - name: dockersock
+    temp: {}
