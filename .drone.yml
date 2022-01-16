@@ -60,18 +60,6 @@ name: default
         - main
 
 steps:
-  - name: docker
-    image: plugins/docker
-    settings:
-        dockerfile: Dockerfile
-        <<: *repo
-        tags:
-            - latest
-        <<: *auth
-    when:
-        branch:
-            - main
-
   # Build latest image without pushing it.
   - name: build-latest
     <<: *buildimage
