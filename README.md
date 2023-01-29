@@ -1,6 +1,6 @@
 # Docker Postfix
 
-[![Build Status](https://github.ci.maxkratz.com/api/badges/maxkratz/docker_postfix/status.svg)](https://github.ci.maxkratz.com/maxkratz/docker_postfix)
+[![Build Docker images](https://github.com/maxkratz/docker_postfix/actions/workflows/build.yml/badge.svg)](https://github.com/maxkratz/docker_postfix/actions/workflows/build.yml)
 
 *Unofficial* Postfix Dockerfile for backup MX (relay host) purposes
 Prebuild images can be found at this [Dockerhub repository](https://hub.docker.com/r/maxkratz/postfix).
