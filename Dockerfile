@@ -1,5 +1,5 @@
-# Use Debian Bullseye
-FROM debian:bullseye
+# Use Debian Bookworm
+FROM debian:bookworm
 LABEL maintainer="Max Kratz <account@maxkratz.com>"
 ENV DEBIAN_FRONTEND=noninteractive
 
