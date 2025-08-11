@@ -1,5 +1,5 @@
-# Use Debian Bookworm
-FROM debian:bookworm
+# Use Debian Trixie
+FROM debian:trixie
 LABEL maintainer="Max Kratz <github@maxkratz.com>"
 ENV DEBIAN_FRONTEND=noninteractive
 
